@@ -12,7 +12,7 @@
 // 9
 // Mang:
 // 1 3 5 7 9
-/*Console.WriteLine("Nhap vao so n:");
+Console.WriteLine("Nhap vao so n:");
 int soN1 = int.Parse(Console.ReadLine());
 int[] arr1 = new int[soN1];
 for (int i = 0; i < soN1; i++)
@@ -25,12 +25,12 @@ foreach (int i in arr1)
 {
     Console.Write(i+" ");
 }
-Console.WriteLine();*/
+Console.WriteLine();
 // Bài 2. Tính tổng mảng
 // Nhập mảng gồm n số nguyên.
 // Tính:
 // S = a[0] + a[1] + ... + a[n-1]
-/*Console.WriteLine("Nhap vao so n:");
+Console.WriteLine("Nhap vao so n:");
 int soN2 = int.Parse(Console.ReadLine());
 int[] arr2 = new int[soN2];
 for (int i = 0; i < soN2; i++)
@@ -43,7 +43,7 @@ foreach (int i in arr2)
 {
     sumArr2 += i;
 }
-Console.WriteLine("Tong cua mang la: " + sumArr2);*/
+Console.WriteLine("Tong cua mang la: " + sumArr2);
 // Bài 3. Tính trung bình cộng
 // Tính giá trị trung bình của các phần tử trong mảng.
 // Ví dụ
@@ -331,7 +331,7 @@ Console.WriteLine("So so nguyen to lon thu hai la: " + soNguyenToL2);
 // Bài 19. Chèn phần tử vào cuối mảng
 // Nhập thêm số x.
 // Xuất mảng sau khi thêm.
-/*int [] arr19 = { 2, 5, 7, 11, 4, 5 };
+int [] arr19 = { 2, 5, 7, 11, 4, 5 };
 int[] mangDaChen = new int[arr19.Length+1];
 Console.WriteLine("Nhap gia tri can chen:");
 int giaTriChen = int.Parse(Console.ReadLine());
@@ -345,13 +345,13 @@ foreach (int i in arr19)
 {
     Console.Write(i+" ");
 }
-Console.WriteLine();*/
+Console.WriteLine();
 // Bài 20. Xóa phần tử tại vị trí k
 // Ví dụ
 // 1 2 3 4 5
 // k = 2
 // 1 2 4 5
-/*int[] arr20 = { 2, 5, 7, 11, 4, 5 };
+int[] arr20 = { 2, 5, 7, 11, 4, 5 };
 int[] mangDaXoa = new int[arr20.Length - 1];
 Console.WriteLine("Nhap vi tri can xoa:");
 int viTriXoa = int.Parse(Console.ReadLine());
@@ -368,7 +368,7 @@ foreach (int i in arr20)
 {
     Console.Write(i+" ");
 }
-Console.WriteLine();*/
+Console.WriteLine();
 // Bài 21. Sắp xếp tăng dần (Bubble Sort)
 // Tự cài đặt Bubble Sort bằng vòng lặp.
 // Ví dụ
@@ -427,7 +427,7 @@ for (int i = 0; i < soX; i++)
 {
     if (arr23[i] == soX)
     {
-        Console.Write("Co trong mang tai vi tri: "+i);
+        Console.WriteLine("Co trong mang tai vi tri: "+i);
         coTrongMang = true;
         break;
     }
@@ -470,8 +470,41 @@ Console.WriteLine();
 // 2 4 6
 // Mang le:
 // 1 3 5
-
-
+int[] arr25 = { 1, 2, 3, 4, 5, 6 };
+int countChan = 0;
+int countLe = 0;
+foreach (int i in arr25)
+{
+    if (i % 2 == 0) countChan++;
+    else countLe++;
+}
+int[] mangLe = new int[countLe];
+int phanTuMangLe = 0;
+int[] mangChan = new int[countChan];
+int phanTuMangChan = 0;
+for (int i = 0; i < arr25.Length; i++)
+{
+    if ( arr25[i] % 2 == 0)
+    {
+        mangChan[phanTuMangChan] = arr25[i];
+        phanTuMangChan++;
+    }
+    else
+    {
+        mangLe[phanTuMangLe] = arr25[i];
+        phanTuMangLe++;
+    }
+}
+foreach (int i in mangChan)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
+foreach (int i in mangLe)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // Bài 26. Tìm cặp phần tử có tổng bằng X
 // Input
 // 1 2 3 4 5
@@ -479,36 +512,170 @@ Console.WriteLine();
 // Output
 // 2 + 5 = 7
 // 3 + 4 = 7
-
-
+int[] arr26 = { 1, 2, 3, 4, 5 };
+Console.WriteLine("Nhap vao so X:");
+int soXNhap =  int.Parse(Console.ReadLine());
+for (int i = 0; i < arr26.Length; i++)
+{
+    for (int j = i + 1; j < arr26.Length; j++)
+    {
+        if (arr26[i] + arr26[j] == soXNhap)
+        {
+            Console.WriteLine($"{arr26[i]} + {arr26[j]} = {arr26[i] + arr26[j]}");
+        }
+    }
+}
 // Bài 27. Loại bỏ phần tử trùng lặp
 // Input
 // 1 2 2 3 4 4 5
 // Output
 // 1 2 3 4 5
+int[] arr27 = { 1, 1, 2, 2, 3, 4, 4, 5 };
+for (int i = 0; i < arr27.Length; i++)
+{
+    for (int j = 0; j < arr27.Length - i - 1; j++)
+    {
+        if (arr27[j] > arr27[j + 1])
+        {
+            int temp = arr27[j];
+            arr27[j] = arr27[j + 1];
+            arr27[j + 1] = temp;
+        }
+    }
+}
+int soKhacNhauCount = 1; 
+for (int i = 1; i < arr27.Length; i++) 
+{
+    if (arr27[i] != arr27[soKhacNhauCount - 1]) 
+    {
+        arr27[soKhacNhauCount] = arr27[i];
+        soKhacNhauCount++;
+    }
+}
+int[] resultArray = new int[soKhacNhauCount];
+for (int i = 0; i < soKhacNhauCount; i++) 
+{
+    resultArray[i] = arr27[i];
+}
+arr27 = resultArray;
 
-
+foreach (int i in arr27)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // Bài 28. Trộn hai mảng
 // Input
 // A: 1 2 3
 // B: 4 5 6
 // Output
 // 1 2 3 4 5 6
+int[] mangA = {1, 2, 3};
+int[] mangB = {4, 5, 6};
+int[] mangC = new int[mangA.Length+mangB.Length];
+for (int i = 0; i < mangA.Length; i++)
+{
+    mangC[i] = mangA[i];
+}
 
-
+for (int i = 0; i < mangB.Length; i++)
+{
+    mangC[mangA.Length+i] = mangB[i];
+}
+foreach (int i in mangC)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // Bài 29. Quản lý điểm sinh viên
 // Nhập điểm của n sinh viên.
+Console.WriteLine("Nhap so sinh vien can nhap diem:");
+int soSinhVien = int.Parse(Console.ReadLine());
+double[] diems = new double[soSinhVien];
+for (int i = 0; i < soSinhVien; i++)
+{
+    Console.WriteLine($"Nhap diem cho ban thu {i+1}:");
+    double diem = double.Parse(Console.ReadLine());
+    diems[i] = diem;
+}
 // Yêu cầu:
 // 1. Xuất danh sách điểm
+foreach (int i in diems)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // 2. Tính điểm trung bình
+double diemTrungBinh = 0;
+foreach (double i in diems)
+{
+    diemTrungBinh += i;
+}
+Console.WriteLine("Diem trung binh la: " + diemTrungBinh/soSinhVien);
 // 3. Tìm điểm cao nhất
+double diemMax = diems[0];
+foreach (double i in diems)
+{
+    if (i > diemMax)  diemMax = i;
+}
+Console.WriteLine("Diem lon nhat la: " + diemMax);
 // 4. Tìm điểm thấp nhất
+double diemMin = diems[0];
+foreach (double i in diems)
+{
+    if (i < diemMin)  diemMin = i;
+}
+Console.WriteLine("Diem nho nhat la: " + diemMin);
 // 5. Đếm số sinh viên đạt (>= 5)
+int countDiemDat = 0;
+foreach (int i in diems)
+{
+    if (i >= 5)  countDiemDat++;
+}
+Console.WriteLine("So sinh vien dat >= 5 la: " + countDiemDat);
 // 6. Đếm số sinh viên giỏi (>= 8)
+int countDiemGioi = 0;
+foreach (int i in diems)
+{
+    if (i >= 8)  countDiemGioi++;
+}
+Console.WriteLine("So sinh vien dat >= 8 la: " + countDiemGioi);
 // 7. Sắp xếp điểm tăng dần
+for (int i = 0; i < diems.Length; i++)
+{
+    for (int j = 0; j < diems.Length - i - 1; j++)
+    {
+        if (diems[j] > diems[j + 1])
+        {
+            double temp = diems[j];
+            diems[j] = diems[j + 1];
+            diems[j + 1] = temp;
+        }
+    }
+}
+foreach (int i in diems)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // 8. Sắp xếp điểm giảm dần
-
-
+for (int i = 0; i < diems.Length; i++)
+{
+    for (int j = 0; j < diems.Length - i - 1; j++)
+    {
+        if (diems[j] < diems[j + 1])
+        {
+            double temp = diems[j];
+            diems[j] = diems[j + 1];
+            diems[j + 1] = temp;
+        }
+    }
+}
+foreach (int i in diems)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // Bài 30. Phân tích mảng số nguyên
 // Viết chương trình thực hiện menu:
 // 1. Nhap mang
@@ -526,11 +693,121 @@ Console.WriteLine();
 // {
 //     // menu
 // }
-// Bài này tổng hợp gần như toàn bộ kiến thức:
-// Vòng lặp for
-// while
-// Mảng 1 chiều
-// Điều kiện if
-// Hàm
-// Thuật toán duyệt mảng
-// Sắp xếp cơ bản
+Console.WriteLine("Nhap so phan tu t cho mang");
+int sot = int.Parse(Console.ReadLine());
+int[] mangT = new int[sot];
+do
+{
+    Console.WriteLine("Nhap lua chon cho menu");
+    Console.WriteLine("1. Nhap mang");
+    Console.WriteLine("2. Xuat mang");
+    Console.WriteLine("3. Tong cac phan tu");
+    Console.WriteLine("4. Tim Max");
+    Console.WriteLine("5. Tim Min");
+    Console.WriteLine("6. Dem so chan");
+    Console.WriteLine("7. Dem so le");
+    Console.WriteLine("8. Sap xep tang");
+    Console.WriteLine("9. Sap xep giam");
+    Console.WriteLine("0. Thoat");
+    string menu = Console.ReadLine();
+    if (menu == "1")
+    {
+        for (int i = 0; i < sot; i++)
+        {
+            Console.WriteLine($"Nhap gia tri cho so thu {i+1}:");
+            int giaTriT = int.Parse(Console.ReadLine());
+            mangT[i] = giaTriT;
+        }
+    }
+    else if (menu == "2")
+    {
+        foreach (int i in mangT)
+        {
+            Console.Write(i+" ");
+        }
+        Console.WriteLine();
+    } 
+    else if (menu == "3")
+    {
+        int sumMangT = 0;
+        foreach (int i in mangT)
+        {
+            sumMangT += i;
+        }
+        Console.WriteLine("Tong cac phan tu trong mang la:"+sumMangT);
+    }
+    else if (menu == "4")
+    {
+        int maxMangT = mangT[0];
+        foreach (int i in mangT)
+        {
+            if (i > maxMangT) maxMangT = i;
+        }
+        Console.WriteLine("so lon nhat mang t la: " + maxMangT);
+    }
+    else if (menu == "5")
+    {
+        int minMangT = mangT[0];
+        foreach (int i in mangT)
+        {
+            if (i < minMangT) minMangT = i;
+        }
+        Console.WriteLine("so nho nhat mang t la: " + minMangT);
+    }
+    else if (menu == "6")
+    {
+        int countTChan = 0;
+        foreach (int i in mangT)
+        {
+            if (i % 2 == 0) countTChan++;
+        }
+        Console.WriteLine("So so chan trong mang t la: " + countTChan);
+    }
+    else if (menu == "7")
+    {
+        int countTLe = 0;
+        foreach (int i in mangT)
+        {
+            if (i % 2 != 0) countTLe++;
+        }
+        Console.WriteLine("So so le trong mang t la: " + countTLe);
+    }
+    else if (menu == "8")
+    {
+        for (int i = 0; i < mangT.Length; i++)
+        {
+            for (int j = 0; j < mangT.Length - i - 1; j++)
+            {
+                if (mangT[j] > mangT[j + 1])
+                {
+                    int temp = mangT[j];
+                    mangT[j] = mangT[j + 1];
+                    mangT[j + 1] = temp;
+                }
+            }
+        }
+    }
+    else if (menu == "9")
+    {
+        for (int i = 0; i < mangT.Length; i++)
+        {
+            for (int j = 0; j < mangT.Length - i - 1; j++)
+            {
+                if (mangT[j] < mangT[j + 1])
+                {
+                    int temp = mangT[j];
+                    mangT[j] = mangT[j + 1];
+                    mangT[j + 1] = temp;
+                }
+            }
+        }
+    }
+    else if (menu == "0")
+    {
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Vui long chon luu chon hop le");
+    }
+} while (true);
