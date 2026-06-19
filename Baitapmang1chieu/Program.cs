@@ -259,59 +259,208 @@ foreach (int i in arr15)
 Console.WriteLine();
 // Bài 16. Đếm số nguyên tố
 // Đếm số lượng số nguyên tố trong mảng.
-
-
+int [] arr16 = { 1, 2, 3, 4, 5, 6, 7 , 8, 11 };
+int countSoNguyenTo = 0;
+foreach (int i in arr16)
+{
+    if (i <= 1) continue;
+    bool soNguyenTo = true;
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            soNguyenTo = false;
+            break;
+        }
+    }
+    if (soNguyenTo) countSoNguyenTo++;
+}
+Console.WriteLine("So so nguyen to la: " + countSoNguyenTo);
 // Bài 17. Tìm số nguyên tố lớn nhất
 // Ví dụ
 // 2 7 11 4 5
 // Ket qua: 11
-
-
+int[] arr17 = { 2, 5, 7, 11, 4, 5 };
+int soNguyenToMax = -1;
+foreach (int i in arr17)
+{
+    if (i <= 1) continue;
+    bool soNguyenTo = true;
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            soNguyenTo = false;
+            break;
+        }
+    }
+    if (soNguyenTo && i > soNguyenToMax) soNguyenToMax = i;
+}
+Console.WriteLine("So so nguyen to lon nhat la: " + soNguyenToMax);
 // Bài 18. Tìm số lớn thứ hai
 // Ví dụ
 // 2 8 5 9 7
 // Ket qua: 8
 // Không được sắp xếp mảng.
-
-
+int[] arr18 = { 2, 8, 5 ,9, 7 };
+int soNguyenToLN = -1;
+int soNguyenToL2 = -1;
+foreach (int i in arr18)
+{
+    if (i <= 1) continue;
+    bool soNguyenTo = true;
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            soNguyenTo = false;
+            break;
+        }
+    }
+    if (soNguyenTo && i > soNguyenToLN)
+    {
+        soNguyenToL2 = soNguyenToLN;
+        soNguyenToLN = i;
+    }
+    else if (soNguyenTo &&  i > soNguyenToL2 && i < soNguyenToLN)
+    {
+        soNguyenToL2 = i;
+    }
+}
+Console.WriteLine("So so nguyen to lon thu hai la: " + soNguyenToL2);
 // Bài 19. Chèn phần tử vào cuối mảng
 // Nhập thêm số x.
 // Xuất mảng sau khi thêm.
-
-
+/*int [] arr19 = { 2, 5, 7, 11, 4, 5 };
+int[] mangDaChen = new int[arr19.Length+1];
+Console.WriteLine("Nhap gia tri can chen:");
+int giaTriChen = int.Parse(Console.ReadLine());
+for (int i = 0; i < arr19.Length; i++)
+{
+    mangDaChen[i] = arr19[i];
+}
+mangDaChen[arr19.Length] = giaTriChen;
+arr19 =  mangDaChen;
+foreach (int i in arr19)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();*/
 // Bài 20. Xóa phần tử tại vị trí k
 // Ví dụ
 // 1 2 3 4 5
 // k = 2
 // 1 2 4 5
-
-
+/*int[] arr20 = { 2, 5, 7, 11, 4, 5 };
+int[] mangDaXoa = new int[arr20.Length - 1];
+Console.WriteLine("Nhap vi tri can xoa:");
+int viTriXoa = int.Parse(Console.ReadLine());
+for (int i = 0; i < viTriXoa; i++)
+{
+    mangDaXoa[i] = arr20[i];
+}
+for (int i = viTriXoa; i < mangDaXoa.Length; i++)
+{
+    mangDaXoa[i] = arr20[i+1];
+}
+arr20 = mangDaXoa;
+foreach (int i in arr20)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();*/
 // Bài 21. Sắp xếp tăng dần (Bubble Sort)
 // Tự cài đặt Bubble Sort bằng vòng lặp.
 // Ví dụ
 // 5 1 8 2 4
 // 1 2 4 5 8
-
-
+int [] arr21 = { 5, 1 ,8, 2, 4 };
+for (int i = 0; i < arr21.Length; i++)
+{
+    for (int j = 0; j < arr21.Length - 1 - i; j++)
+    {
+        if (arr21[j] > arr21[j + 1])
+        {
+            int temp = arr21[j];
+            arr21[j] = arr21[j + 1];
+            arr21[j + 1] = temp;
+        }
+    }
+}
+foreach (int i in arr21)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // Bài 22. Sắp xếp giảm dần
 // Không dùng:
 // Array.Sort()
-
-
+int [] arr22 = { 5, 1 ,8, 2, 4 };
+for (int i = 0; i < arr22.Length; i++)
+{
+    for (int j = 0; j < arr22.Length - 1 - i; j++)
+    {
+        if (arr22[j] < arr22[j + 1])
+        {
+            int temp = arr22[j];
+            arr22[j] = arr22[j + 1];
+            arr22[j + 1] = temp;
+        }
+    }
+}
+foreach (int i in arr22)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 // Bài 23. Tìm kiếm tuyến tính
 // Nhập số x.
 // Kiểm tra xem x có trong mảng hay không.
 // Ví dụ
 // Nhap x = 7
 // Co trong mang tai vi tri 3
-
-
+int[] arr23 = { 5, 1 ,8, 2, 4 };
+Console.WriteLine("Nhap vao so nguyen x de kiem tra:");
+int soX = int.Parse(Console.ReadLine());
+bool coTrongMang = false;
+for (int i = 0; i < soX; i++)
+{
+    if (arr23[i] == soX)
+    {
+        Console.Write("Co trong mang tai vi tri: "+i);
+        coTrongMang = true;
+        break;
+    }
+}
+if (!coTrongMang)
+{
+    Console.WriteLine("So da nhap khong co trong mang");
+}
 // Bài 24. Xóa tất cả số âm
 // Ví dụ
 // 1 -2 3 -4 5
 // Ket qua:
 // 1 3 5
-
+int[] arr24 = { 2, -5, -7, 11, -4, 5 };
+int countSoAm = 0;
+foreach (int i in arr24)
+{
+    if (i < 0) countSoAm++;
+}
+int soPhanTU = 0;
+int[] mangDaXoaSoAm = new int[arr24.Length - countSoAm];
+for (int i = 0; i < arr24.Length; i++)
+{
+    if (arr24[i] < 0) continue;
+    mangDaXoaSoAm[soPhanTU] = arr24[i];
+    soPhanTU++;
+}
+arr24 = mangDaXoaSoAm;
+foreach (int i in arr24)
+{
+    Console.Write(i+" ");
+}
+Console.WriteLine();
 
 // Bài 25. Tách mảng chẵn và lẻ
 // Input
